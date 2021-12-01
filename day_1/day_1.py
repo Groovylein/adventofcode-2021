@@ -22,6 +22,10 @@ def find_increased_measurements(input_file):
     return inc_count
 
 
+def find_sum_increased_measurements(input_file):
+    return 0
+
+
 # HERE the real calls for the Day
 
 if __name__ == "__main__":
