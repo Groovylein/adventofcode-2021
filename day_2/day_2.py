@@ -22,7 +22,31 @@ def get_final_depth(input_file):
     return horizontal_pos * depth
 
 
+def get_final_depth_with_aim(input_file):
+    horizontal_pos = 0
+    depth = 0
+    aim = 0
+
+    with open(input_file) as file:
+        lines = file.readlines()
+        line_list = [line.rstrip() for line in lines]
+
+    for elem in line_list:
+        keyword, key_num = elem.split()
+        key_num = int(key_num)
+        if keyword == "forward":
+            horizontal_pos += key_num
+            depth += aim * key_num
+        elif keyword == "down":
+            aim += key_num
+        elif keyword == "up":
+            aim -= key_num
+
+    return horizontal_pos * depth
+
+
 if __name__ == "__main__":
     my_input_file = os.path.abspath("./input_day_2.txt")
 
     print(get_final_depth(my_input_file))
+    print(get_final_depth_with_aim(my_input_file))
